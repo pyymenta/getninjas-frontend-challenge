@@ -1,0 +1,14 @@
+{
+  "name": "getninjas-form-api",
+  "version": "1.0.0",
+  "description": "GetNinjas form object API",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Lucas Pimenta <lucas.pimenta94@outlook.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
