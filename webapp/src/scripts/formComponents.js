@@ -6,3 +6,7 @@ const createSelect = (fieldObj) => {
   return ``
 }
 
+export default {
+  createInput,
+  createSelect
+}
