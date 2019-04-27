@@ -42,7 +42,8 @@ module.exports = {
       template: 'index.html'
     }),
     new CopyPlugin([
-      { from: './src/img', to: 'img' }
+      { from: './src/img', to: 'img' },
+      { from: 'favicon.ico', to: 'favicon.ico' },
     ]),
   ]
 };
