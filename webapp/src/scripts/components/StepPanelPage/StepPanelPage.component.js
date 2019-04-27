@@ -1,4 +1,5 @@
 import Component from '../Component/Component';
+import './StepPanelPage.css'
 
 export default class StepPanelPage extends Component{
   constructor(id, label, headerMarkup) {
@@ -18,6 +19,10 @@ export default class StepPanelPage extends Component{
 
   addComponent(component) {
     this.elem.appendChild(component);
+  }
+
+  getContainer() {
+    return this.elem;
   }
 
   show() {
