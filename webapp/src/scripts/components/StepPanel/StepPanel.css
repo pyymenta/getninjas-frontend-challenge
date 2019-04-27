@@ -1,0 +1,43 @@
+.step-panel {
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 7px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.step-panel___containerButton {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  background-color: #e7e7e7;
+  color: rgba(83,110,123,.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  font-size: 12px;
+  font-weight: 400;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+
+.step-panel___button {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  line-height: 1;
+  padding: 14px;
+  text-align: center;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.step-panel___button--active {
+  background-color: #fff;
+  color: #536e7b;
+}
