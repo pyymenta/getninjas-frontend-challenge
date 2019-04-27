@@ -1,9 +1,11 @@
 import Component from '../Component/Component';
 
 export default class StepPanelPage extends Component{
-  constructor(label, headerMarkup) {
+  constructor(id, label, headerMarkup) {
     super();
     this.label = label;
+    this.active = false;
+    this.idPage = id
     this.headerMarkup = headerMarkup;
     this.init();
   }
@@ -11,7 +13,7 @@ export default class StepPanelPage extends Component{
   init() {
     this.elem = document.createElement('div');
     this.elem.classList.add('step-panel___page');
-    this.elem.appendChild(this.headerMarkup);
+    this.elem.innerHTML = this.headerMarkup || '';
   }
 
   addComponent(component) {
@@ -19,10 +21,12 @@ export default class StepPanelPage extends Component{
   }
 
   show() {
+    this.active = true;
     this.elem.style.display = 'block';
   }
 
   hide() {
+    this.active = false;
     this.elem.style.display = 'none';
   }
 }
