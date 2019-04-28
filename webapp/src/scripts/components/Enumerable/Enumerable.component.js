@@ -23,12 +23,14 @@ export default class Enumerable extends Component{
 
   appendProps(props) {
     Object.keys(props).forEach(propName => {
-      if (propName === 'placeholder') {
-        this.elem.placeholder = props[propName];
+      if (propName === 'required') {
+        this.elem.required = props[propName] ? true : false;
+        return;
       }
-      if (propName === 'name') {
-        this.elem.name = props[propName];
-      } 
+      if (propName === 'type') {
+        return;
+      }
+      this.elem[propName] = props[propName];
     });
   }
 
