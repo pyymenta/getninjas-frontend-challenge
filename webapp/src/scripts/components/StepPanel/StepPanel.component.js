@@ -39,7 +39,14 @@ export default class StepPanel extends Component {
       this.setActivePage(page.idPage);
     });
     this.pages.push(pageObject);
+    this._enableOnlyFirstPage();
     console.log(this.pages);
+  }
+
+  _enableOnlyFirstPage() {
+    this.pages.forEach((page, index) => {
+      index === 0 ? this._enablePage(page) : this._disablePage(page);
+    })
   }
 
   setActivePage(pageId) {
