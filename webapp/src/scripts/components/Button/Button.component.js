@@ -1,17 +1,15 @@
 import './Button.css';
+import Component from '../Component/Component';
 
-export default class Button {
+export default class Button extends Component{
   constructor(label) {
+    super();
     this.init(label);
-  }
-  
-  render(container) {
-    container.appendChild(this.elem);
   }
 
   init(label) {
     this.elem = document.createElement('button');
-    this.elem.classList('btn', 'btn--fluid', 'btn--high-contrast', 'btn--regular');
+    this.elem.classList.add('btn', 'btn--fluid', 'btn--high-contrast', 'btn--regular', 'space-box-medium');
     this.elem.innerText = label;
   }
 }
