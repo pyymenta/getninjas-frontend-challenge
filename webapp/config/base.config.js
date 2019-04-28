@@ -16,7 +16,8 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [{
+        use: [
+          {
             loader: MiniCssExtractPlugin.loader,
             options: {
               publicPath: '../'
@@ -24,10 +25,6 @@ module.exports = {
           },
           'css-loader',
         ]
-      },
-      {
-        test: /\.svg$/,
-        loader: 'svg-inline-loader'
       }
     ]
   },
@@ -44,14 +41,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'index.html'
     }),
-    new CopyPlugin([{
-        from: './src/img',
-        to: 'img'
-      },
-      {
-        from: 'favicon.ico',
-        to: 'favicon.ico'
-      },
+    new CopyPlugin([
+      { from: './src/img', to: 'img' },
+      { from: 'favicon.ico', to: 'favicon.ico' },
     ]),
   ]
 };
