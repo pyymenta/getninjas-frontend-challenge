@@ -1,15 +1,12 @@
 import './CheckButton.css';
-
-export default class CheckButton {
+import Component from '../Component/Component';
+export default class CheckButton extends Component{
   constructor(props) {
+    super();
     this.init();
     this.addInitialClassStructure();
     this.appendProps(props || {});
     this.selected = false;
-  }
-  
-  render(container) {
-    container.appendChild(this.elem)
   }
 
   init() {
