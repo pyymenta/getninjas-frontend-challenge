@@ -1,6 +1,6 @@
-import Input from '../Input/Input.component';
+import Component from '../Component/Component';
 
-export default class CheckList extends Input {
+export default class CheckList extends Component {
   constructor() {
     super();
     this.listItem = [];

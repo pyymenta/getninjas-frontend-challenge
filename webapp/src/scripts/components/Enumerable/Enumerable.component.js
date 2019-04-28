@@ -1,16 +1,17 @@
 import './enumerable.css';
-import Input from '../Input/Input.component';
+import Component from '../Component/Component';
 
-export default class Enumerable extends Input {
-  constructor() {
+export default class Enumerable extends Component{
+  constructor(props) {
     super();
-    this.init();
+    this.init(props);
   }
 
-  init() {
+  init(props) {
     this.itemList = [];
     this.elem = document.createElement('select');
     this.elem.classList.add('form-input');
+    this.appendProps(props);
   }
 
   addOption (text, value){

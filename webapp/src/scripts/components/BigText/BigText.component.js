@@ -1,15 +1,16 @@
 import './BigText.css'
-import Input from '../Component/Component';
+import Component from '../Component/Component';
 
-export default class BigText extends Input {
-  constructor() {
+export default class BigText extends Component {
+  constructor(props) {
     super();
-    this.init();
+    this.init(props);
   }
 
-  init() {
+  init(props) {
     this.elem = document.createElement('textarea');
     this.elem.classList.add('form-input');
+    this.appendProps(props);
   }
 
   appendProps(props) {
