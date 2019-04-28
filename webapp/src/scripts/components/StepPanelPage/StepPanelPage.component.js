@@ -12,7 +12,7 @@ export default class StepPanelPage extends Component{
   }
 
   init() {
-    this.elem = document.createElement('div');
+    this.elem = document.createElement('fieldset');
     this.elem.classList.add('step-panel___page');
     this.elem.innerHTML = this.headerMarkup || '';
   }

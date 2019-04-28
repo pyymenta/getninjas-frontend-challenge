@@ -15,7 +15,7 @@ export default class StepPanel extends Component {
 
   _createInitialStructure() {
     this.rootElem = document.createElement('div');
-    this.elem = document.createElement('div');
+    this.elem = document.createElement('form');
     this.elemStepButtonContainer = document.createElement('ol')
     this.rootElem.appendChild(this.elem);
     this.rootElem.appendChild(this.elemStepButtonContainer);

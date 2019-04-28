@@ -1,0 +1,51 @@
+.form-check {
+  margin-top: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.form-check input:not(:disabled) {
+  cursor: pointer;
+}
+
+.form-check>input {
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+.form-check label {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: rgba(51,51,51,.6);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 14px;
+  margin-left: 11px;
+}
+
+.form-check label:before {
+  background-color: #eff4fa;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 0 0 1px rgba(83,110,123,.3);
+  box-shadow: inset 0 0 0 1px rgba(83,110,123,.3);
+  content: "";
+  height: 20px;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  width: 20px;
+}
+
+.form-check>input:checked~label:before {
+  background-color: #1393f6;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  color: #fff;
+  content: url('../../../img/check.svg');
+}
