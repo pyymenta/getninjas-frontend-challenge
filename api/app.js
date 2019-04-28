@@ -2,6 +2,9 @@
 
 const app = require('express')();
 const fs = require('fs');
+var cors = require('cors')();
+
+app.use(cors);
 
 const { PORT } = require('./config/config');
 
