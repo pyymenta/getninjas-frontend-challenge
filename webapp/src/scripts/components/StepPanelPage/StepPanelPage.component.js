@@ -2,12 +2,12 @@ import Component from '../Component/Component';
 import './StepPanelPage.css'
 
 export default class StepPanelPage extends Component{
-  constructor(id, label, headerMarkup) {
+  constructor(id, pageProps) {
     super();
-    this.label = label;
+    this.label = pageProps.bottomButtonLabel;
     this.active = false;
     this.idPage = id
-    this.headerMarkup = headerMarkup;
+    this.headerMarkup = pageProps.headerMarkup;
     this.init();
   }
 
