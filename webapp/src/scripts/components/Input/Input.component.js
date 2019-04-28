@@ -1,10 +1,12 @@
 import './input.css';
+import formValidate from '../../formValidate'
 import Component from '../Component/Component';
 
 export default class Input extends Component {
   constructor(field, fieldProps) {
     super();
-    this.init(field, fieldProps);
+    this.field = field;
+    this.init(this.field, fieldProps);
   }
 
   init(field, fieldProps) {
@@ -14,10 +16,18 @@ export default class Input extends Component {
   }
 
   createInitialStructure(field) {
+    this.createElements()
+    this.composeElemObject();
+    this.setupFieldListeners(field);
+  }
+
+  createElements() {
     this.elem = document.createElement('div');
-    this.field = field;
     this.enumerableLabel = document.createElement('label');
     this.enumerableErrorMessage = document.createElement('span');
+  }
+
+  composeElemObject() {
     this.elem.appendChild(this.enumerableLabel);
     this.field.render(this.elem);
     this.elem.appendChild(this.enumerableErrorMessage);
@@ -35,5 +45,11 @@ export default class Input extends Component {
         this.enumerableLabel.innerText = props[propName];
       }
     });
+  }
+
+  setupFieldListeners(field) {
+    if (field.elem.required) {
+      field.elem.addEventListener('blur', formValidate.handleValidationRequiredField(this));
+    }
   }
 }
