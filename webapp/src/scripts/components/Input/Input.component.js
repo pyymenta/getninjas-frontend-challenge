@@ -19,8 +19,8 @@ export default class Input extends Component {
     this.enumerableLabel = document.createElement('label');
     this.enumerableErrorMessage = document.createElement('span');
     this.elem.appendChild(this.enumerableLabel);
-    this.elem.appendChild(this.enumerableErrorMessage);
     this.field.render(this.elem);
+    this.elem.appendChild(this.enumerableErrorMessage);
   }
 
   addInitialClassStructure() {
