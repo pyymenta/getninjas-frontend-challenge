@@ -1,5 +1,5 @@
 import './input.css';
-import formValidate from '../../formValidate'
+import formValidate from '../../assets/formValidate'
 import Component from '../Component/Component';
 
 export default class Input extends Component {
