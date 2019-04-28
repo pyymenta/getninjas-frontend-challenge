@@ -3,38 +3,72 @@ import './src/styles/style.css'
 
 import StepPanel from './src/scripts/components/StepPanel/StepPanel.component'
 import StepPanelPage from './src/scripts/components/StepPanelPage/StepPanelPage.component'
+import markups from './src/pagesMarkup'
+import config from './src/scripts/config';
+import formComponents from './src/scripts/formComponents';
 
-const stepPanel = new StepPanel();
-const markupPedidos = `
-    <div class="header-markup">
-      <h2 class="header-markup___title">Explique o que você precisa
-        <small>Peça o orçamento grátis, online!</small>
-      </h2>
-    </div>
-`;
-
-const markupDados = `
-    <div class="header-markup">
-      <div class="header-markup___content-wrapper">
-        <img src="img/phone_call.svg" class="header-markup___header-image" alt="Ilustração de um celular vibrando.">
-        <h2 class="header-markup___header-info">
-          Estamos quase lá
-          <small>Não perca tempo ligando para vários profissionais. Preencha os dados abaixo e 
-            <strong>nós encontraremos os melhores pra você!</strong>
-          </small>
-        </h2>
-      </div>
-    </div>
-`;
-const page = new StepPanelPage('request_fields', '1. Seu Pedido', markupPedidos);
-const page2 = new StepPanelPage('user_fields', '2. Seus Dados', markupDados);
-stepPanel.addPage(page);
-stepPanel.addPage(page2);
-stepPanel.setActivePage(page.idPage);
+const pageProps = {
+  'request_fields': {
+    bottomButtonLabel: '1. Seu Pedido',
+    headerMarkup: markups.markupPedidos,
+    active: true,
+    sendButtonLabel: 'buscar profissionais'
+  },
+  'user_fields': {
+    bottomButtonLabel: '2. Seus Dados',
+    headerMarkup: markups.markupDados,
+    active: false,
+    sendButtonLabel: 'finalizar'
+  }
+}
 
 const initForm = () => {
-  const container = document.querySelector('.container');
-  stepPanel.render(container);
+  fetch(config.FORM_API_URL).then(res => {
+    return res.json();
+  }).then(json => {
+    const container = document.querySelector('.container');
+    generatePanels(json, container);  
+  })
+  
+}
+
+const generatePanels = (apiObj, container) => {
+  Object.entries(apiObj).forEach(([panel, panelObject]) => {
+    const stepPanel = new StepPanel();
+    stepPanel.render(container);
+    generatePages(stepPanel, panelObject);
+  });
+}
+
+const generatePages = (stepPanel, panelObject) => {
+  Object.entries(panelObject).forEach(([pageId, pageObject]) => {
+    stepPanel.addPage(generatePage(pageId, pageObject))
+    if (pageProps[pageId].active) { 
+      stepPanel.setActivePage(pageId);
+    }
+  })
+}
+
+const generatePage = (pageId, pageObject) => {
+  const page = new StepPanelPage(pageId, pageProps[pageId]);
+  pageObject.forEach(fieldProps => {
+    generateField(fieldProps).render(page.getContainer());
+  });
+  const pageButton = formComponents.generate.button(pageProps[pageId].sendButtonLabel);
+  pageButton.render(page.getContainer());
+  return page;
+}
+
+const generateField = (fieldProps) => {
+  if (fieldProps.type) {
+    switch(fieldProps.type) {
+      case 'enumerable': return formComponents.generate.populatedEnumerate(fieldProps, true);
+      case 'big_text': return formComponents.generate.bigText(fieldProps);
+      case 'checkbox': return formComponents.generate.populatedCheckList(fieldProps);
+      case 'small_text', 'cep', 'email', 'phone': return formComponents.generate.textField(fieldProps);
+    }
+  }
+  return formComponents.generate.textField(fieldProps);
 }
 
 document.addEventListener('DOMContentLoaded', initForm);
