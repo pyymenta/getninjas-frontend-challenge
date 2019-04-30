@@ -40,7 +40,6 @@ export default class StepPanel extends Component {
     });
     this.pages.push(pageObject);
     this._enableOnlyFirstPage();
-    console.log(this.pages);
   }
 
   _enableOnlyFirstPage() {
