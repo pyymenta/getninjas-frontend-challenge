@@ -16,8 +16,8 @@ Este projeto foi implementado de acordo com o descrito no arquivo [CHALLENGE](./
 
 ### RECURSOS
 
-- [Web API](http://localhost:3000/api)
-- [Web APP](http://localhost:8081)
+- [Web API](http://localhost:3001/api)
+- [Web APP](http://localhost:8080)
 
 ### Como utilizar
 
