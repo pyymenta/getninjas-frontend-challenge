@@ -8,6 +8,7 @@
     "build": "set NODE_ENV=production node && node_modules/.bin/webpack --config ./config/prod.config.js",
     "lint": "./node_modules/.bin/eslint src/**/*.js",
     "test": "./node_modules/.bin/mocha ./tests/**/*.spec.js --recursive --require @babel/register,ignore-styles",
+    "test:e2e": "./node_modules/.bin/cypress open",
     "test:tdd": "./node_modules/.bin/mocha ./tests/**/*.spec.js --recursive --require @babel/register,ignore-styles --watch",
     "test:coverage": "./node_modules/.bin/nyc npm test"
   },
@@ -22,6 +23,7 @@
     "chai": "^4.2.0",
     "copy-webpack-plugin": "^5.0.3",
     "css-loader": "^2.1.1",
+    "cypress": "^3.2.0",
     "eslint": "^5.16.0",
     "html-webpack-plugin": "^3.2.0",
     "ignore-styles": "^5.0.1",
