@@ -1,2 +1,4 @@
 node_modules
 dist
+.cypress_examples
+.nyc_output
