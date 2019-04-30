@@ -1,0 +1,22 @@
+
+version: '3'
+
+services:
+  webapi:
+    container_name: getninja_frontend_api
+    build:
+      context: ./api
+    ports:
+      - 3001:3001
+    environment:
+      PORT: 3001
+    restart: always
+
+  getninja_frontend_webapp:
+    container_name: getninja_frontend_api_webapp
+    build:
+      context: ./webapp
+    ports:
+      - 8080:80
+    environment:
+      NODE_ENV: development
