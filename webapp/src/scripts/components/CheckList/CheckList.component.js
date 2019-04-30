@@ -13,5 +13,6 @@ export default class CheckList extends Component {
 
   addListItem(listItem) {
     listItem.render(this.elem);
+    this.listItem.push(listItem);
   }
 }

@@ -18,7 +18,9 @@ export default class Input extends Component {
   createInitialStructure(field) {
     this.createElements()
     this.composeElemObject();
-    this.setupFieldListeners(field);
+    if (this.field instanceof Component) {
+      this.setupFieldListeners(field);
+    }
   }
 
   createElements() {
@@ -29,7 +31,9 @@ export default class Input extends Component {
 
   composeElemObject() {
     this.elem.appendChild(this.enumerableLabel);
-    this.field.render(this.elem);
+    if (this.field instanceof Component) {
+      this.field.render(this.elem);
+    }
     this.elem.appendChild(this.enumerableErrorMessage);
   }
 
@@ -40,7 +44,7 @@ export default class Input extends Component {
   }
 
   appendProps(props) {
-    Object.keys(props).forEach(propName => {
+    Object.keys(props || {}).forEach(propName => {
       if (propName === 'label') {
         this.enumerableLabel.innerText = props[propName];
       }

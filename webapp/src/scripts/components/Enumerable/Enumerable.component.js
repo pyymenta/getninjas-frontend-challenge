@@ -22,7 +22,7 @@ export default class Enumerable extends Component{
   }
 
   appendProps(props) {
-    Object.keys(props).forEach(propName => {
+    Object.keys(props || {}).forEach(propName => {
       if (propName === 'required') {
         this.elem.required = props[propName] ? true : false;
         return;
