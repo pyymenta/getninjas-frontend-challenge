@@ -14,20 +14,44 @@ export default class Enumerable extends Component{
     this.appendProps(props);
   }
 
-  addOption (text, value){
+  addOption (text, value, isPlaceholder = false){
     let option = document.createElement('option');
     option.value = value;
     option.text = text;
+    if (isPlaceholder) {
+      this._makeOptionPlaceholder(option);
+      this._enablePlaceholding();
+    }
     this.elem.add(option);
+  }
+
+  _enablePlaceholding(){
+    this.elem.addEventListener('change', this._togglePlaceholder);
+    this.elem.classList.add('option___placeholder');
+  }
+
+  _makeOptionPlaceholder(option) {
+    option.disabled = true;
+    option.selected = true;
+    option.hidden = true;
+  }
+
+  _togglePlaceholder(e){
+    const selectElem = e.currentTarget;
+    if (selectElem.value === ''){
+      selectElem.classList.add('option___placeholder');
+      return;
+    }
+    selectElem.classList.remove('option___placeholder');
   }
 
   appendProps(props) {
     Object.keys(props || {}).forEach(propName => {
-      if (propName === 'required') {
-        this.elem.required = props[propName] ? true : false;
+      if (propName === 'type') {
         return;
       }
-      if (propName === 'type') {
+      if (propName === 'placeholder') {
+        this.addOption(props['placeholder'], '', true);
         return;
       }
       this.elem[propName] = props[propName];
