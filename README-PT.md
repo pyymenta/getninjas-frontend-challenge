@@ -25,16 +25,16 @@ Este projeto foi implementado de acordo com o descrito no arquivo [CHALLENGE](./
   - Executar os comandos para instalar as depedencias:
   
   ```bash
-  cd api
+  cd api/
   npm i
-  cd ../webapp
+  cd ../webapp/
   npm i
   ```
   
   - Iniciar a API
   
   ```bash
-  cd webapp
+  cd api/
   npm start
   ```
 

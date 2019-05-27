@@ -25,16 +25,16 @@ This project has been implemented according it's been describing in [CHALLENGE](
   - Install dependencies:
   
   ```bash
-  cd api
+  cd api/
   npm i
-  cd ../webapp
+  cd ../webapp/
   npm i
   ```
   
   - Init API
   
   ```bash
-  cd webapp
+  cd api
   npm start
   ```
 
