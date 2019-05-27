@@ -1,5 +1,3 @@
-import StepPanel from '../components/StepPanel/StepPanel.component';
-import StepPanelPage from '../components/StepPanelPage/StepPanelPage.component';
 import configPageProp from '../config/pageProps.config';
 import componentsFactory from './formComponentsFactory';
 
@@ -7,7 +5,7 @@ const _pageProps = configPageProp.pageProps;
 
 const generatePanels = (apiObj, container) => {
   Object.entries(apiObj).forEach(([panel, panelObject]) => {
-    const stepPanel = new StepPanel();
+    const stepPanel = componentsFactory.generate.stepPanel();
     stepPanel.render(container);
     _generatePages(stepPanel, panelObject);
   });
@@ -23,7 +21,7 @@ const _generatePages = (stepPanel, panelObject) => {
 }
 
 const _generatePage = (pageId, pageObject) => {
-  const page = new StepPanelPage(pageId, _pageProps[pageId]);
+  const page = componentsFactory.generate.stepPanelPage(pageId, _pageProps[pageId]);
   pageObject.forEach(fieldProps => {
     _generateField(fieldProps).render(page.getContainer());
   });

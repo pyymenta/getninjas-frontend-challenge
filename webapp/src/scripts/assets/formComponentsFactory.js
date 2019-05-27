@@ -12,8 +12,8 @@ const generate = {
   stepPanel: () => {
     return new StepPanel();
   },
-  stepPanelPage: (idPage, bottomButtonLabel, headerMarkup) => {
-    return new StepPanelPage(idPage, bottomButtonLabel, headerMarkup);
+  stepPanelPage: (idPage, pageProps) => {
+    return new StepPanelPage(idPage, pageProps);
   },
   enumerable: (props) => {
     return new Input(new Enumerable(props || {}), props || {});
