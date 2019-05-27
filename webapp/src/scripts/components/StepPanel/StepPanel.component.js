@@ -31,6 +31,10 @@ export default class StepPanel extends Component {
     container.appendChild(this.rootElem);
   }
 
+  getForm() {
+    return this.elem;
+  }
+
   addPage(page) {
     page.render(this.elem);
     let createdButton = this._createAndAppendPageButton(page);
@@ -56,6 +60,16 @@ export default class StepPanel extends Component {
       }
       this._disablePage(currentPage);
     });
+  }
+
+  goNext(currentPageId = '') {
+    const currentPageIndex = this.pages.indexOf(currentPageId);
+    if (currentPageIndex === -1) {
+      return;
+    }
+    if (currentPageIndex < this.pages.length) {
+      this.setActivePage(this.pages[currentPageId + 1]);
+    }
   }
 
   _enablePage(page) {

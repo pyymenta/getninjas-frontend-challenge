@@ -9,6 +9,24 @@ const handleValidationRequiredField = (messageErrorContext) => {
   }
 }
 
+const handleRequiredFieldValidationOnSubmit = (panel, pageId) => {
+  return (e) => {
+    panel.getForm
+    if(panel.getForm().checkValidity().valid) {
+      panel.goNext(pageId);
+    }
+  }
+}
+
+const handleFinish = (callback = () => {}) => {
+  return (e) => {
+    callback();
+    console.log('me contrata plxx, nunca pedi nada');
+  }
+}
+
 export default {
-  handleValidationRequiredField
+  handleValidationRequiredField,
+  handleRequiredFieldValidationOnSubmit,
+  handleFinish
 }

@@ -15,19 +15,21 @@ const generatePanels = (apiObj, container) => {
 
 const _generatePages = (stepPanel, panelObject) => {
   Object.entries(panelObject).forEach(([pageId, pageObject]) => {
-    stepPanel.addPage(_generatePage(pageId, pageObject))
+    stepPanel.addPage(_generatePage(pageId, pageObject, stepPanel))
     if (_pageProps[pageId].active) { 
       stepPanel.setActivePage(pageId);
     }
   })
 }
 
-const _generatePage = (pageId, pageObject) => {
+const _generatePage = (pageId, pageObject, panel) => {
   const page = new StepPanelPage(pageId, _pageProps[pageId]);
   pageObject.forEach(fieldProps => {
     _generateField(fieldProps).render(page.getContainer());
   });
   const pageButton = componentsFactory.generate.button(_pageProps[pageId].sendButtonLabel);
+  const pageButtonAction = _pageProps[pageId].submmitButtonAction;
+  pageButton.addAction(pageButtonAction(panel));
   pageButton.render(page.getContainer());
   return page;
 }

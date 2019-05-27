@@ -12,4 +12,8 @@ export default class Button extends Component{
     this.elem.classList.add('btn', 'btn--fluid', 'btn--high-contrast', 'btn--regular', 'space-box-medium');
     this.elem.innerText = label;
   }
+
+  addAction(handle = () => {}) {
+    this.elem.addEventListener('click', handle);
+  }
 }
