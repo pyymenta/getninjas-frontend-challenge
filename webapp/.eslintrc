@@ -5,8 +5,12 @@
     "commonjs": true,
     "es6": true,
     "node": true,
-    "mocha": true
+    "mocha": true,
+    "cypress/globals": true
   },
+  "plugins": [
+    "cypress"
+  ],
   "parserOptions": {
     "sourceType": "module"
   },
