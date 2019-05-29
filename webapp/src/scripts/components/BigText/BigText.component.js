@@ -1,4 +1,4 @@
-import './BigText.css'
+import './BigText.css';
 import Component from '../Component/Component';
 
 export default class BigText extends Component {
@@ -14,9 +14,9 @@ export default class BigText extends Component {
   }
 
   appendProps(props) {
-    Object.keys(props || {}).forEach(propName => {
+    Object.keys(props || {}).forEach((propName) => {
       if (propName === 'required') {
-        this.elem.required = props[propName] ? true : false;
+        this.elem.required = props[propName];
         return;
       }
       if (propName === 'type') {

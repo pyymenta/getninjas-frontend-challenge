@@ -22,5 +22,5 @@ const markupDados = `
 
 export default {
   markupDados,
-  markupPedidos
-}
+  markupPedidos,
+};

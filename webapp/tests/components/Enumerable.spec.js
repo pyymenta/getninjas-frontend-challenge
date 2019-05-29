@@ -1,12 +1,12 @@
 
 import { assert } from 'chai';
-import { JSDOM } from 'jsdom'
-const { window } = (new JSDOM(`...`));
+import { JSDOM } from 'jsdom';
+import Enumerable from '../../src/scripts/components/Enumerable/Enumerable.component';
+
+const { window } = (new JSDOM('...'));
 
 global.document = window.document;
 global.window = window;
-
-import Enumerable from '../../src/scripts/components/Enumerable/Enumerable.component'
 
 describe('Enumerable class', () => {
   it('should enumerable instance has inherited render method from component', () => {

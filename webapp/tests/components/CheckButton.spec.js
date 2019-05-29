@@ -1,12 +1,12 @@
 
 import { assert } from 'chai';
-import { JSDOM } from 'jsdom'
-const { window } = (new JSDOM(`...`));
+import { JSDOM } from 'jsdom';
+import CheckButton from '../../src/scripts/components/CheckButton/CheckButton.component';
+
+const { window } = (new JSDOM('...'));
 
 global.document = window.document;
 global.window = window;
-
-import CheckButton from '../../src/scripts/components/CheckButton/CheckButton.component'
 
 describe('CheckButton class', () => {
   it('should checkButton instance has inherited render method from component', () => {

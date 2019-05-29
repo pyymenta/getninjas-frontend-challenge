@@ -1,6 +1,7 @@
 import './CheckButton.css';
 import Component from '../Component/Component';
-export default class CheckButton extends Component{
+
+export default class CheckButton extends Component {
   constructor(props) {
     super();
     this.init();
@@ -41,5 +42,4 @@ export default class CheckButton extends Component{
   isSelect() {
     return this.selected;
   }
-
 }

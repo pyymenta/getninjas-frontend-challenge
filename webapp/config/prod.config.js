@@ -5,9 +5,9 @@ const UglifyjsPlugin = require('uglifyjs-webpack-plugin');
 module.exports = merge(base, {
   mode: 'production',
   optimization: {
-    namedChunks: true
+    namedChunks: true,
   },
   plugins: [
-    new UglifyjsPlugin()
-  ]
+    new UglifyjsPlugin(),
+  ],
 });

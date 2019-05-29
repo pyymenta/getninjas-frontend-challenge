@@ -1,20 +1,20 @@
 import markups from './pagesMarkup';
 
 const pageProps = {
-  'request_fields': {
+  request_fields: {
     bottomButtonLabel: '1. Seu Pedido',
     headerMarkup: markups.markupPedidos,
     active: true,
-    sendButtonLabel: 'buscar profissionais'
+    sendButtonLabel: 'buscar profissionais',
   },
-  'user_fields': {
+  user_fields: {
     bottomButtonLabel: '2. Seus Dados',
     headerMarkup: markups.markupDados,
     active: false,
-    sendButtonLabel: 'finalizar'
-  }
-}
+    sendButtonLabel: 'finalizar',
+  },
+};
 
 export default {
-  pageProps
-}
+  pageProps,
+};

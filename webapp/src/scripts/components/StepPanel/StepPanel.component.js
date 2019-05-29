@@ -16,7 +16,7 @@ export default class StepPanel extends Component {
   _createInitialStructure() {
     this.rootElem = document.createElement('div');
     this.elem = document.createElement('form');
-    this.elemStepButtonContainer = document.createElement('ol')
+    this.elemStepButtonContainer = document.createElement('ol');
     this.rootElem.appendChild(this.elem);
     this.rootElem.appendChild(this.elemStepButtonContainer);
   }
@@ -33,8 +33,8 @@ export default class StepPanel extends Component {
 
   addPage(page) {
     page.render(this.elem);
-    let createdButton = this._createAndAppendPageButton(page);
-    let pageObject = { page, pageButton: createdButton }
+    const createdButton = this._createAndAppendPageButton(page);
+    const pageObject = { page, pageButton: createdButton };
     createdButton.addEventListener('click', () => {
       this.setActivePage(page.idPage);
     });
@@ -44,12 +44,16 @@ export default class StepPanel extends Component {
 
   _enableOnlyFirstPage() {
     this.pages.forEach((page, index) => {
-      index === 0 ? this._enablePage(page) : this._disablePage(page);
-    })
+      if (index === 0) {
+        this._enablePage(page);
+        return;
+      }
+      this._disablePage(page);
+    });
   }
 
   setActivePage(pageId) {
-    this.pages.forEach(currentPage => {
+    this.pages.forEach((currentPage) => {
       if (pageId === currentPage.page.idPage) {
         this._enablePage(currentPage);
         return;
@@ -69,7 +73,7 @@ export default class StepPanel extends Component {
   }
 
   _createAndAppendPageButton(page) {
-    let stepButton = document.createElement('li');
+    const stepButton = document.createElement('li');
     stepButton.innerText = page.label || '';
     stepButton.classList.add('step-panel___button');
     this.elemStepButtonContainer.appendChild(stepButton);

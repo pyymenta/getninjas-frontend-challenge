@@ -1,5 +1,5 @@
 import './input.css';
-import formValidate from '../../assets/formValidate'
+import formValidate from '../../assets/formValidate';
 import Component from '../Component/Component';
 
 export default class Input extends Component {
@@ -16,7 +16,7 @@ export default class Input extends Component {
   }
 
   createInitialStructure(field) {
-    this.createElements()
+    this.createElements();
     this.composeElemObject();
     if (this.field instanceof Component) {
       this.setupFieldListeners(field);
@@ -44,7 +44,7 @@ export default class Input extends Component {
   }
 
   appendProps(props) {
-    Object.keys(props || {}).forEach(propName => {
+    Object.keys(props || {}).forEach((propName) => {
       if (propName === 'label') {
         this.enumerableLabel.innerText = props[propName];
       }

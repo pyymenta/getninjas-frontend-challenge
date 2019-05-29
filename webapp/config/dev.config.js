@@ -8,6 +8,6 @@ module.exports = merge(base, {
   devServer: {
     open: true,
     inline: true,
-    contentBase: './dist'
-  }
+    contentBase: './dist',
+  },
 });
